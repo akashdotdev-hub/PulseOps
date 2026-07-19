@@ -1,5 +1,11 @@
+import MainLayout from "../../layouts/MainLayout";
+
 function Dashboard() {
-  return <h1>Dashboard</h1>;
+  return (
+    <MainLayout>
+      <h1>Dashboard</h1>
+    </MainLayout>
+  );
 }
 
 export default Dashboard;
