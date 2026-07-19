@@ -3,10 +3,19 @@ import { Card, CardContent, Typography } from "@mui/material";
 function StatCard({ title, value }) {
   return (
     <Card
-      sx={{
-        height: "100%",
-        borderRadius: 3,
-      }}
+        sx={{
+         height: "100%",
+         borderRadius: 3,
+        bgcolor: "background.paper",
+         border: "1px solid",
+        borderColor: "divider",
+        transition: "0.3s",
+
+        "&:hover": {
+        borderColor: "primary.main",
+        transform: "translateY(-3px)",
+            },
+        }}
     >
       <CardContent>
         <Typography

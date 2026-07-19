@@ -6,8 +6,10 @@ function Navbar() {
       position="static"
       elevation={0}
       sx={{
-        backgroundColor: "background.paper",
-        color: "white",
+        bgcolor: "background.paper",
+        color: "text.primary",
+        borderBottom: "1px solid",
+        borderColor: "divider",
       }}
     >
       <Toolbar>

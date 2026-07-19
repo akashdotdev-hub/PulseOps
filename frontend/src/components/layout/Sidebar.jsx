@@ -63,7 +63,8 @@ function Sidebar() {
       sx={{
         width: 250,
         bgcolor: "background.paper",
-        borderRight: "1px solid #334155",
+        borderRight: "1px solid",
+        borderColor: "divider",
       }}
     >
       <Typography

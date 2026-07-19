@@ -5,25 +5,56 @@ const theme = createTheme({
     mode: "dark",
 
     primary: {
-      main: "#3B82F6",
+      main: "#06a719",
     },
 
     secondary: {
-      main: "#8B5CF6",
+      main: "#6cf068",
     },
 
     background: {
-      default: "#0F172A",
-      paper: "#1E293B",
+      default: "#001800",
+      paper: "#053104",
     },
+
+    success: {
+      main: "#6cf068",
+    },
+
+    warning: {
+      main: "#fdff01",
+    },
+
+    error: {
+      main: "#ff4d4d",
+    },
+
+    text: {
+      primary: "#F5F5F5",
+      secondary: "#B8D8B8",
+    },
+
+    divider: "#1d3b1d",
   },
 
   shape: {
-    borderRadius: 10,
+    borderRadius: 12,
   },
 
   typography: {
-    fontFamily: "Inter, Roboto, Arial, sans-serif",
+    fontFamily: "'Inter', 'Roboto', sans-serif",
+
+    h4: {
+      fontWeight: 700,
+    },
+
+    h5: {
+      fontWeight: 700,
+    },
+
+    h6: {
+      fontWeight: 600,
+    },
   },
 });
 
