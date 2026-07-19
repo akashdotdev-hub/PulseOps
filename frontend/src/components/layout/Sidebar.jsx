@@ -61,35 +61,106 @@ function Sidebar() {
   return (
     <Box
       sx={{
-        width: 250,
+        width: 280,
+        minWidth: 280,
+        height: "100vh",
+        position: "sticky",
+        top: 0,
+
         bgcolor: "background.paper",
+
+        borderTopRightRadius: 32,
+        borderBottomRightRadius: 32,
+
         borderRight: "1px solid",
         borderColor: "divider",
+
+        overflowY: "auto",
+        overflowX: "hidden",
       }}
     >
       <Typography
-        variant="h5"
+        variant="h4"
         sx={{
           p: 3,
-          fontWeight: "bold",
+          fontWeight: 700,
+          color: "primary.main",
+          letterSpacing: 0.5,
         }}
       >
         PulseOps
       </Typography>
 
-      <List>
-        {menuItems.map((item) => (
-          <ListItemButton
-            key={item.text}
-            component={Link}
-            to={item.path}
-            selected={location.pathname === item.path}
-          >
-            <ListItemIcon>{item.icon}</ListItemIcon>
+      <List sx={{ px: 1 }}>
+        {menuItems.map((item) => {
+          const isSelected = location.pathname === item.path;
 
-            <ListItemText primary={item.text} />
-          </ListItemButton>
-        ))}
+          return (
+            <ListItemButton
+              key={item.text}
+              component={Link}
+              to={item.path}
+              selected={isSelected}
+              sx={{
+                my: 0.5,
+                mx: 1,
+                py: 1.3,
+                px: 2,
+                borderRadius: 3,
+
+                color: "text.primary",
+
+                transition: "all .25s ease",
+
+                "&:hover": {
+                  bgcolor: "rgba(204,255,0,.08)",
+
+                  "& .MuiListItemIcon-root": {
+                    color: "primary.main",
+                    transform: "scale(1.08)",
+                  },
+                },
+
+                "&.Mui-selected": {
+                  bgcolor: "rgba(204,255,0,.12)",
+
+                  borderLeft: "3px solid",
+                  borderColor: "primary.main",
+
+                  "& .MuiListItemIcon-root": {
+                    color: "primary.main",
+                  },
+
+                  "& .MuiListItemText-primary": {
+                    color: "primary.main",
+                    fontWeight: 700,
+                  },
+
+                  "&:hover": {
+                    bgcolor: "rgba(204,255,0,.16)",
+                  },
+                },
+              }}
+            >
+              <ListItemIcon
+                sx={{
+                  color: isSelected ? "primary.main" : "text.secondary",
+                  minWidth: 40,
+                  transition: "all .25s ease",
+                }}
+              >
+                {item.icon}
+              </ListItemIcon>
+
+              <ListItemText
+                primary={item.text}
+                primaryTypographyProps={{
+                  fontWeight: isSelected ? 700 : 500,
+                }}
+              />
+            </ListItemButton>
+          );
+        })}
       </List>
     </Box>
   );

@@ -5,13 +5,35 @@ import Navbar from "../components/layout/Navbar";
 
 function MainLayout({ children }) {
   return (
-    <Box sx={{ display: "flex", minHeight: "100vh" }}>
+    <Box
+      sx={{
+        display: "flex",
+        minHeight: "100vh",
+        bgcolor: "background.default",
+      }}
+    >
+      {/* Sidebar */}
       <Sidebar />
 
-      <Box sx={{ flex: 1 }}>
+      {/* Main Content */}
+      <Box
+        sx={{
+          flexGrow: 1,
+          display: "flex",
+          flexDirection: "column",
+          minWidth: 0,
+        }}
+      >
         <Navbar />
 
-        <Box sx={{ p: 3 }}>
+        <Box
+          component="main"
+          sx={{
+            flexGrow: 1,
+            p: 3,
+            overflow: "auto",
+          }}
+        >
           {children}
         </Box>
       </Box>

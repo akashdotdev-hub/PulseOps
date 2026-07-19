@@ -1,39 +1,83 @@
-import { Card, CardContent, Typography } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  Typography,
+  Box,
+} from "@mui/material";
 
-function StatCard({ title, value }) {
+function StatCard({
+  title,
+  value,
+  icon,
+  subtitle,
+}) {
   return (
     <Card
-        sx={{
-         height: "100%",
-         borderRadius: 3,
+      sx={{
         bgcolor: "background.paper",
-         border: "1px solid",
+        border: "1px solid",
         borderColor: "divider",
-        transition: "0.3s",
+        borderRadius: 4,
+        transition: "all .25s",
 
         "&:hover": {
-        borderColor: "primary.main",
-        transform: "translateY(-3px)",
-            },
-        }}
+          borderColor: "primary.main",
+          transform: "translateY(-4px)",
+          boxShadow: "0 0 20px rgba(204,255,0,.15)",
+        },
+      }}
     >
       <CardContent>
-        <Typography
-          variant="body2"
-          color="text.secondary"
-        >
-          {title}
-        </Typography>
 
-        <Typography
-          variant="h4"
+        <Box
           sx={{
-            mt: 2,
-            fontWeight: "bold",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "flex-start",
           }}
         >
-          {value}
-        </Typography>
+          <Box>
+
+            <Typography
+              variant="body2"
+              color="text.secondary"
+            >
+              {title}
+            </Typography>
+
+            <Typography
+              variant="h3"
+              sx={{
+                mt: 1,
+                fontWeight: 700,
+              }}
+            >
+              {value}
+            </Typography>
+
+            <Typography
+              variant="body2"
+              sx={{
+                mt: 1,
+                color: "secondary.main",
+              }}
+            >
+              {subtitle}
+            </Typography>
+
+          </Box>
+
+          <Box
+            sx={{
+              color: "primary.main",
+              opacity: .9,
+            }}
+          >
+            {icon}
+          </Box>
+
+        </Box>
+
       </CardContent>
     </Card>
   );

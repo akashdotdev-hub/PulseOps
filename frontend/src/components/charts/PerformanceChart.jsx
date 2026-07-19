@@ -6,6 +6,8 @@ import {
   Tooltip,
   CartesianGrid,
 } from "recharts";
+import CustomTooltip from "./CustomTooltip";
+
 
 const data = [
   { time: "09:00", cpu: 22, ram: 41 },
@@ -27,7 +29,9 @@ function PerformanceChart() {
           stroke="#B8D8B8"
         />
 
-        <Tooltip />
+        <Tooltip
+  content={<CustomTooltip />}
+/>
 
         <Line
           type="monotone"
