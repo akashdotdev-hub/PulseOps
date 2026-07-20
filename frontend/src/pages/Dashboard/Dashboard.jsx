@@ -1,7 +1,5 @@
 import { Grid } from "@mui/material";
 
-import MainLayout from "../../layouts/MainLayout";
-
 import StatCard from "../../components/cards/StatCard";
 import SectionCard from "../../components/common/SectionCard";
 import PerformanceChart from "../../components/charts/PerformanceChart";
@@ -17,7 +15,7 @@ import WelcomeBanner from "../../components/dashboard/WelcomeBanner";
 
 function Dashboard() {
   return (
-    <MainLayout>
+    <>
       <WelcomeBanner />
       <Grid container spacing={3}>
 
@@ -86,7 +84,7 @@ function Dashboard() {
 </Grid>
 
       </Grid>
-    </MainLayout>
+    </>
   );
 }
 

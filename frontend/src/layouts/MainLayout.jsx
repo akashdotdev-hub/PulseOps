@@ -1,9 +1,10 @@
 import { Box } from "@mui/material";
+import { Outlet } from "react-router-dom";
 
 import Sidebar from "../components/layout/Sidebar";
 import Navbar from "../components/layout/Navbar";
 
-function MainLayout({ children }) {
+function MainLayout() {
   return (
     <Box
       sx={{
@@ -34,7 +35,7 @@ function MainLayout({ children }) {
             overflow: "auto",
           }}
         >
-          {children}
+          <Outlet />
         </Box>
       </Box>
     </Box>
