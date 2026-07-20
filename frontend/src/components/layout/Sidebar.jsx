@@ -152,12 +152,13 @@ function Sidebar() {
                 {item.icon}
               </ListItemIcon>
 
-              <ListItemText
-                primary={item.text}
-                primaryTypographyProps={{
-                  fontWeight: isSelected ? 700 : 500,
-                }}
-              />
+             <ListItemText
+  primary={
+    <Typography fontWeight={isSelected ? 700 : 500}>
+      {item.text}
+    </Typography>
+  }
+/>
             </ListItemButton>
           );
         })}

@@ -1,0 +1,32 @@
+export const mockContainers = [
+  {
+    id: "1",
+    name: "nginx-prod",
+    image: "nginx:latest",
+    status: "running",
+    ports: "80:80",
+    cpu: "2.4%",
+    memory: "156 MB",
+    uptime: "4d 12h",
+  },
+  {
+    id: "2",
+    name: "redis-cache",
+    image: "redis:7",
+    status: "running",
+    ports: "6379:6379",
+    cpu: "0.9%",
+    memory: "92 MB",
+    uptime: "8d 3h",
+  },
+  {
+    id: "3",
+    name: "mongodb",
+    image: "mongo:8",
+    status: "stopped",
+    ports: "27017:27017",
+    cpu: "-",
+    memory: "-",
+    uptime: "-",
+  },
+];

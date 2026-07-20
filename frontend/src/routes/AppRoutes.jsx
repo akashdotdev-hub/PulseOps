@@ -6,7 +6,7 @@ import MainLayout from "../layouts/MainLayout";
 const Dashboard = React.lazy(() => import("../pages/Dashboard/Dashboard"));
 const Login = React.lazy(() => import("../pages/Login/Login"));
 const Deployments = React.lazy(() => import("../pages/Deployments/Deployments"));
-const Containers = React.lazy(() => import("../pages/Containers/Containers"));
+const Containers = React.lazy(() => import("../pages/Containers/ContainersPage"));
 const Monitoring = React.lazy(() => import("../pages/Monitoring/Monitoring"));
 const AWS = React.lazy(() => import("../pages/AWS/AWS"));
 const Logs = React.lazy(() => import("../pages/Logs/Logs"));
