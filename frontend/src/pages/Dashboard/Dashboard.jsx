@@ -33,7 +33,7 @@ function Dashboard() {
     <StatCard
         title="Memory"
         value="68%"
-        subtitle="8 GB / 16 GB"
+        subtitle="10 GB / 16 GB"
         icon={<StorageIcon fontSize="large" />}
     />
 </Grid>
