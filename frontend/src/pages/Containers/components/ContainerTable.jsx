@@ -83,33 +83,33 @@ const ContainerTable = ({
                 >
                   <IconButton
                    color="success"
-                   onClick={() => onStart(container.id)}
+                   onClick={() => onStart(container)}
 >
                   <PlayArrowIcon />
                  </IconButton>
 <IconButton
   color="error"
-  onClick={() => onStop(container.id)}
+  onClick={() => onStop(container)}
 >
   <StopIcon />
 </IconButton>
                   <IconButton
   color="primary"
-  onClick={() => onRestart(container.id)}
+  onClick={() => onRestart(container)}
 >
   <RestartAltIcon />
 </IconButton>
 
                  <IconButton
   color="info"
-  onClick={() => onLogs(container.id)}
+  onClick={() => onLogs(container)}
 >
   <DescriptionIcon />
 </IconButton>
 
                 <IconButton
   color="secondary"
-  onClick={() => onInspect(container.id)}
+  onClick={() => onInspect(container)}
 >
   <InfoOutlinedIcon />
 </IconButton>

@@ -11,25 +11,30 @@ import InspectDrawer from "./components/InspectDrawer";
 
 const ContainersPage = () => {
 
-  const handleStart = (id) => {
-  console.log("Start:", id);
+  const [inspectOpen, setInspectOpen] = useState(false);
+  const [selectedContainer, setSelectedContainer] = useState(null);
+
+  const handleStart = (container) => {
+  console.log("Start:", container.id);
 };
 
-const handleStop = (id) => {
-  console.log("Stop:", id);
+const handleStop = (container) => {
+  console.log("Stop:", container.id);
 };
 
-const handleRestart = (id) => {
-  console.log("Restart:", id);
+const handleRestart = (container) => {
+  console.log("Restart:", container.id);
 };
 
-const handleLogs = (id) => {
-  console.log("Logs:", id);
+const handleInspect = (container) => {
+  setSelectedContainer(container);
+  setInspectOpen(true);
 };
 
-const handleInspect = (id) => {
-  console.log("Inspect:", id);
+const handleLogs = (container) => {
+  console.log("Logs:", container.id);
 };
+
 
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState("all");
@@ -60,7 +65,7 @@ const handleInspect = (id) => {
         Monitor and manage your Docker containers.
       </Typography>
 
-      <ContainerStats containers={mockContainers} />
+      <ContainerStats containers={filteredContainers} />
 
       <ContainerToolbar
         search={search}
@@ -76,6 +81,12 @@ const handleInspect = (id) => {
   onRestart={handleRestart}
   onLogs={handleLogs}
   onInspect={handleInspect}
+/>
+
+<InspectDrawer
+  open={inspectOpen}
+  onClose={() => setInspectOpen(false)}
+  container={selectedContainer}
 />
     </Box>
   );

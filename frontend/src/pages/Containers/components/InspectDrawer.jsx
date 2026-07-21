@@ -62,7 +62,7 @@ const InspectDrawer = ({
 
         <DetailRow
           label="Name"
-          value={container.name}
+          value={container}
         />
 
         <DetailRow
