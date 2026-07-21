@@ -82,22 +82,26 @@ const ContainerTable = ({
                   sx={{ justifyContent: 'center' }}
                 >
                   <IconButton
-                   color="success"
-                   onClick={() => onStart(container)}
+    color="success"
+    disabled={container.status === "running"}
+    onClick={() => onStart(container)}
 >
-                  <PlayArrowIcon />
-                 </IconButton>
-<IconButton
-  color="error"
-  onClick={() => onStop(container)}
->
-  <StopIcon />
+    <PlayArrowIcon />
 </IconButton>
-                  <IconButton
-  color="primary"
-  onClick={() => onRestart(container)}
+<IconButton
+    color="error"
+    disabled={container.status !== "running"}
+    onClick={() => onStop(container)}
 >
-  <RestartAltIcon />
+    <StopIcon />
+</IconButton>
+
+                  <IconButton
+    color="warning"
+    disabled={container.status !== "running"}
+    onClick={() => onRestart(container)}
+>
+    <RestartAltIcon />
 </IconButton>
 
                  <IconButton

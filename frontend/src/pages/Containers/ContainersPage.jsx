@@ -6,53 +6,53 @@ import ContainerStats from "./components/ContainerStats";
 import ContainerToolbar from "./components/ContainerToolbar";
 import ContainerTable from "./components/ContainerTable";
 import InspectDrawer from "./components/InspectDrawer";
-
-
+import LogsDialog from "./components/LogsDialog";
 
 const ContainersPage = () => {
-
   const [inspectOpen, setInspectOpen] = useState(false);
+  const [logsOpen, setLogsOpen] = useState(false);
+
+  // Only ONE selectedContainer state
   const [selectedContainer, setSelectedContainer] = useState(null);
 
   const handleStart = (container) => {
-  console.log("Start:", container.id);
-};
+    console.log("Start:", container.id);
+  };
 
-const handleStop = (container) => {
-  console.log("Stop:", container.id);
-};
+  const handleStop = (container) => {
+    console.log("Stop:", container.id);
+  };
 
-const handleRestart = (container) => {
-  console.log("Restart:", container.id);
-};
+  const handleRestart = (container) => {
+    console.log("Restart:", container.id);
+  };
 
-const handleInspect = (container) => {
-  setSelectedContainer(container);
-  setInspectOpen(true);
-};
+  const handleInspect = (container) => {
+    setSelectedContainer(container);
+    setInspectOpen(true);
+  };
 
-const handleLogs = (container) => {
-  console.log("Logs:", container.id);
-};
-
+  const handleLogs = (container) => {
+    setSelectedContainer(container);
+    setLogsOpen(true);
+  };
 
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState("all");
 
   const filteredContainers = mockContainers.filter((container) => {
-  const matchesSearch =
-    container.name.toLowerCase().includes(search.toLowerCase()) ||
-    container.image.toLowerCase().includes(search.toLowerCase());
+    const matchesSearch =
+      container.name.toLowerCase().includes(search.toLowerCase()) ||
+      container.image.toLowerCase().includes(search.toLowerCase());
 
-  const matchesStatus =
-    status === "all" || container.status === status;
+    const matchesStatus =
+      status === "all" || container.status === status;
 
-  return matchesSearch && matchesStatus;
-});
+    return matchesSearch && matchesStatus;
+  });
 
   return (
     <Box sx={{ p: 3 }}>
-      {/* Page Title */}
       <Typography variant="h4" fontWeight={700}>
         Containers
       </Typography>
@@ -75,19 +75,25 @@ const handleLogs = (container) => {
       />
 
       <ContainerTable
-  containers={filteredContainers}
-  onStart={handleStart}
-  onStop={handleStop}
-  onRestart={handleRestart}
-  onLogs={handleLogs}
-  onInspect={handleInspect}
-/>
+        containers={filteredContainers}
+        onStart={handleStart}
+        onStop={handleStop}
+        onRestart={handleRestart}
+        onLogs={handleLogs}
+        onInspect={handleInspect}
+      />
 
-<InspectDrawer
-  open={inspectOpen}
-  onClose={() => setInspectOpen(false)}
-  container={selectedContainer}
-/>
+      <InspectDrawer
+        open={inspectOpen}
+        onClose={() => setInspectOpen(false)}
+        container={selectedContainer}
+      />
+
+      <LogsDialog
+        open={logsOpen}
+        onClose={() => setLogsOpen(false)}
+        container={selectedContainer}
+      />
     </Box>
   );
 };
