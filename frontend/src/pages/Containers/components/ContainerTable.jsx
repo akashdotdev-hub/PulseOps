@@ -79,7 +79,7 @@ const ContainerTable = ({
                 <Stack
                   direction="row"
                   spacing={1}
-                  justifyContent="center"
+                  sx={{ justifyContent: 'center' }}
                 >
                   <IconButton
                    color="success"
