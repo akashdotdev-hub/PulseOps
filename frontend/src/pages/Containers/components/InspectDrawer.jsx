@@ -10,8 +10,7 @@ import {
 const DetailRow = ({ label, value }) => (
   <Stack
     direction="row"
-    justifyContent="space-between"
-    sx={{ py: 1 }}
+    sx={{ py: 1, justifyContent: 'space-between' }}
   >
     <Typography fontWeight={600}>
       {label}
@@ -62,7 +61,7 @@ const InspectDrawer = ({
 
         <DetailRow
           label="Name"
-          value={container}
+          value={container.name}
         />
 
         <DetailRow
